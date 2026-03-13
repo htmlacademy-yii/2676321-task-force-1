@@ -1,7 +1,7 @@
 # Личный проект «TaskForce»
 
 * Студент: [Pavel](https://up.htmlacademy.ru/yii-individual/1/user/2676321).
-* Наставник: `Неизвестно`.
+* Наставник: `Сергей`.
 
 ---
 
