@@ -20,32 +20,39 @@ class Task
     public const string STATUS_ACTIVE = 'active';
     public const string STATUS_COMPLETED = 'completed';
     public const string STATUS_FAILED = 'failed';
-
-    private string $status;
-    private int $authorId;
-    private ?int $executorId;
+    private const array STATUSES = [
+        self::STATUS_NEW => 'Новое',
+        self::STATUS_ACTIVE => 'В работе',
+        self::STATUS_COMPLETED => 'Выполнено',
+        self::STATUS_CANCELED => 'Отменено',
+        self::STATUS_FAILED => 'Провалено'
+    ];
+    private string $status {
+        get {
+            return $this->status;
+        }
+    }
+    private int $authorId {
+        get {
+            return $this->authorId;
+        }
+    }
+    private ?int $executorId {
+        get {
+            return $this->executorId;
+        }
+    }
 
 
     public function __construct(int $authorId, string $status = self::STATUS_NEW, ?int $executorId = null)
     {
+        if (!isset(self::STATUSES[$status])) {
+            throw new TaskException("Неизвестный статус: {$status}");
+        }
+
         $this->status = $status;
         $this->authorId = $authorId;
         $this->executorId = $executorId;
-    }
-
-    public function getStatus(): string
-    {
-        return $this->status;
-    }
-
-    public function getExecutorId(): ?int
-    {
-        return $this->executorId;
-    }
-
-    public function getAuthorId(): int
-    {
-        return $this->authorId;
     }
 
     /**
@@ -55,13 +62,7 @@ class Task
      */
     public static function getStatuses(): array
     {
-        return [
-            self::STATUS_NEW => 'Новое',
-            self::STATUS_ACTIVE => 'В работе',
-            self::STATUS_COMPLETED => 'Выполнено',
-            self::STATUS_CANCELED => 'Отменено',
-            self::STATUS_FAILED => 'Провалено'
-        ];
+        return self::STATUSES;
     }
 
     /**
