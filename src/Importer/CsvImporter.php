@@ -38,8 +38,8 @@ abstract class CsvImporter
         }
 
         $rows = [];
-
-        foreach ($file as $row) {
+        while (!$file->eof()) {
+            $row = $file->fgetcsv(',', '"', '\\');
             if (empty($row) || $row[0] === null) {
                 continue;
             }
