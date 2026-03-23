@@ -47,6 +47,7 @@ CREATE TABLE IF NOT EXISTS tasks (
   description TEXT NOT NULL,
   category_id SMALLINT UNSIGNED NOT NULL,
   city_id INT UNSIGNED NULL,
+  location_name VARCHAR(255) NULL;
   location POINT NOT NULL,
   budget INT UNSIGNED NULL,
   due_date DATE NULL,
@@ -111,3 +112,15 @@ CREATE TABLE IF NOT EXISTS task_files (
 
   FOREIGN KEY (task_id) REFERENCES tasks(id)
 );
+
+CREATE TABLE IF NOT EXISTS user_categories (
+  user_id INT UNSIGNED NOT NULL,
+  category_id SMALLINT UNSIGNED NOT NULL,
+  PRIMARY KEY (user_id, category_id),
+
+  INDEX idx_user_id (user_id),
+  INDEX idx_category_id (category_id),
+
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+  FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE
+  );
