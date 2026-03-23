@@ -7,6 +7,7 @@ USE taskforce;
 CREATE TABLE IF NOT EXISTS categories (
   id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(150) NOT NULL,
+  icon VARCHAR(50) NOT NULL,
   UNIQUE INDEX idx_name (name)
 );
 
@@ -47,7 +48,7 @@ CREATE TABLE IF NOT EXISTS tasks (
   description TEXT NOT NULL,
   category_id SMALLINT UNSIGNED NOT NULL,
   city_id INT UNSIGNED NULL,
-  location_name VARCHAR(255) NULL;
+  location_name VARCHAR(255) NULL,
   location POINT NOT NULL,
   budget INT UNSIGNED NULL,
   due_date DATE NULL,
