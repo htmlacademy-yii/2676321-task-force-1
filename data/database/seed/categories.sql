@@ -1,3 +1,5 @@
+USE taskforce;
+
 INSERT INTO categories (name, icon) VALUES ('Курьерские услуги', 'courier');
 INSERT INTO categories (name, icon) VALUES ('Уборка', 'clean');
 INSERT INTO categories (name, icon) VALUES ('Переезды', 'cargo');

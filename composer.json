@@ -1,6 +1,6 @@
 {
     "name": "pavel/taskforce",
-    "description": "Educational task management platform built with Yii2",
+    "description": "Task management platform built with Yii2",
     "type": "project",
     "license": "BSD-3-Clause",
     "support": {
