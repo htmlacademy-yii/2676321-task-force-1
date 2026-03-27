@@ -1,3 +1,5 @@
+USE taskforce;
+
 INSERT INTO cities (name, location) VALUES ('Абаза', POINT(90.0885929, 52.6517296));
 INSERT INTO cities (name, location) VALUES ('Абакан', POINT(91.4437792, 53.7223661));
 INSERT INTO cities (name, location) VALUES ('Абдулино', POINT(53.6473115, 53.6778096));

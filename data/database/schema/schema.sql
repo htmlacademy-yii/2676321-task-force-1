@@ -69,7 +69,6 @@ CREATE TABLE IF NOT EXISTS tasks (
   FOREIGN KEY (city_id) REFERENCES cities(id)
 );
 
--- Пока статусы у response примерные
 CREATE TABLE IF NOT EXISTS responses (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
